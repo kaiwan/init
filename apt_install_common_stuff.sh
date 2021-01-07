@@ -1,8 +1,10 @@
-
+#!/bin/bash
 # repo:
 # https://github.com/kaiwan/init
+
 # If on a Raspberry Pi, run
 sudo raspi-config
+sudo apt install raspberrypi-kernel-headers
 
 # setup Localization (date), WiFi, etc..
 
