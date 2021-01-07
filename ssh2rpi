@@ -1,0 +1,11 @@
+#!/bin/bash
+TM=5
+while [ true ] ; do
+   ./ssh2rpi.sh
+   i=${TM}
+   while [ $i -gt 0 ] ; do
+	sleep 1
+	echo -n "."
+	let i=i-1
+   done
+done
