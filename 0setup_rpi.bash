@@ -90,6 +90,10 @@ alias giturl='git remote get-url --all origin'
 alias gitlog='git log --graph --pretty=format:"%h: %ar: %s" --abbrev-commit'
  #git log --graph --pretty=oneline --abbrev-commit'
 #----------------------------------------------------------------------
+# auth
+git config --global credential.helper 'cache --timeout 36000'  # in sec; thus, 10 hrs
+#----------------------------------------------------------------------
+
 
 ###
 # Some useful functions
