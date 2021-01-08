@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # For L2: Linux Kernel Internals
 REPOS=( \
 https://github.com/kaiwan/usefulsnips \
