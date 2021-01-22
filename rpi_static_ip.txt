@@ -1,0 +1,19 @@
+This is for Raspbian / R Pi OS only:
+Backup /etc/dhcpcd.conf
+
+Edit it and add this:
+...
+# KNB : 02jun2020
+interface eth0                # WIRED
+
+static ip_address=192.168.0.10/24
+static routers=192.168.0.1
+static domain_name_servers=192.168.0.1
+
+interface wlan0     # WIRELESS (WIFI)
+
+static ip_address=192.168.0.200/24
+static routers=192.168.0.1
+static domain_name_servers=192.168.0.1
+
+Or 192.168.1.200/24
