@@ -35,11 +35,11 @@ alias mv='mv -i'
 alias cp='cp -i'
 
 #alias dmesg='/bin/dmesg --decode --nopager --color --ctime'
-alias dm='dmesg|tail -n35'
+alias dm='sudo dmesg --color=always|tail -n35'
 alias dc='echo "Clearing klog"; dmesg -c > /dev/null'
 alias lsh='lsmod | head'
 
-alias grep='grep --color=auto'
+alias grep='grep --color=always'
 alias s='echo "Syncing.."; sync; sync; sync'
 alias d='df -h|grep "^/dev/"'
 alias f='free -ht'
