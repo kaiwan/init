@@ -74,7 +74,7 @@ alias sd='sudo /bin/bash'
 
 [ $(id -u) -eq 0 ] && {
   # console debug: show all printk's on the console
-  echo "7 4 1 4" > /proc/sys/kernel/printk
+  echo "8 4 1 4" > /proc/sys/kernel/printk
   # better core pattern
   [ $(id -u) -eq 0 ] && {
    echo "corefile:host=%h:gPID=%P:gTID=%I:ruid=%u:sig=%s:exe=%E" > /proc/sys/kernel/core_pattern
