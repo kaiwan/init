@@ -24,6 +24,7 @@ unset USERNAME
 }
 #trap 'printf \\e[0m' DEBUG  # IMP: turn Off color once Enter pressed..
 
+echo "CPU temp (milliC): $(cat /sys/class/hwmon/hwmon0/temp1_input)"
 
 # Aliases
 alias cl='clear'
@@ -83,7 +84,7 @@ alias sd='sudo /bin/bash'
    echo "corefile:host=%h:gPID=%P:gTID=%I:ruid=%u:sig=%s:exe=%E" > /proc/sys/kernel/core_pattern
   }
 }
-echo -n "printk: " ; cat /proc/sys/kernel/printk
+#echo -n "printk: " ; cat /proc/sys/kernel/printk
 
 #----------------------- Git ! ----------------------------------------
 alias gdiff='git diff -r'
