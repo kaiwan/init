@@ -1,20 +1,48 @@
-kaiwanTECH : GitHub repos for the source code:
+[On Windows, view this with Notepad++ or equivalent]
+-----------------------------------------------------
+kaiwanTECH : opensource GitHub repos for source code:
+-----------------------------------------------------
 
+<<------- Book repos ------->>
+Linux Kernel Debugging
+ - Leverage proven tools and advanced techniques to effectively debug Linux
+   kernels and kernel modules
+Packt, Aug 2022
+https://github.com/PacktPublishing/Linux-Kernel-Debugging
+
+Linux Kernel Programming
+ - A comprehensive guide to kernel internals, writing kernel modules, and
+   kernel synchronization
+Packt, Mar 2021
+https://github.com/PacktPublishing/Linux-Kernel-Programming
+
+Linux Kernel Programming - Part 2
+ - Char Device Drivers and Kernel Synchronization: Create user-kernel interfaces, work with peripheral I/O, and handle hardware interrupts
+Packt, Mar 2021
+https://github.com/PacktPublishing/Linux-Kernel-Programming-Part-2
+
+Hands-On System Programming with Linux, Kaiwan NB, Packt - code:
+Packt, Oct 2018
+https://github.com/PacktPublishing/Hands-on-System-Programming-with-Linux
+
+
+<<------- Training repos ------->>
 Linux systems programming: 
-git clone https://github.com/kaiwan/L1_sysprg_trg
+https://github.com/kaiwan/L1_sysprg_trg
 
-Book- Hands-On System Programming with Linux, Kaiwan NB, Packt - code:
-git clone https://github.com/PacktPublishing/Hands-on-System-Programming-with-Linux
-
-Linux kernel internals: 
-git clone https://github.com/kaiwan/L2_kernel_trg
+Linux kernel internals:
+https://github.com/kaiwan/L2_kernel_trg
 
 Linux kernel device drivers: 
 git clone https://github.com/kaiwan/L3_dd_trg
 
-Emulate a Raspberry Pi with QEMU:
-https://github.com/nachoparker/qemu-raspbian-network
-ref- https://ownyourbits.com/2017/02/06/raspbian-on-qemu-with-network-access/
+Embedded Linux:
+git clone https://github.com/kaiwan/L4_emblinux_trg
 
 Linux kernel debug: 
 git clone https://github.com/kaiwan/L5_debug_trg
+
+--Misc--
+Emulate a Raspberry Pi with QEMU:
+https://github.com/nachoparker/qemu-raspbian-network
+ref- https://ownyourbits.com/2017/02/06/raspbian-on-qemu-with-network-access/
