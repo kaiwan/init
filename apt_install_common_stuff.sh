@@ -28,7 +28,9 @@ sudo apt install -y \
         util-linux vim virt-what xz-utils
 
 echo "${name}: install 0setup_rpi.bash and ~/.vimrc ..."
-[ -f 0setup_rpi.bash ] && sudo cp 0setup_rpi.bash /
-# Append to ~/.bashrc to autorun every time a shell's spawned
-sed -i '$ a # Run our custom startup script\n/source 0setup_rpi.bash' ~/.bashrc
+[ -f 0setup_rpi.bash ] && {
+	sudo cp 0setup_rpi.bash /
+	# Append to ~/.bashrc to autorun every time a shell's spawned
+	sed -i '$ a # Run our custom startup script\nsource /0setup_rpi.bash' ~/.bashrc
+}
 [ -f dot_vimrc ] && cp dot_vimrc ~/.vimrc
