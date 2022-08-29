@@ -25,10 +25,10 @@ sudo apt install -y \
         perf-tools-unstable psmisc python3-distutils  \
         raspberrypi-kernel-headers rt-tests smem sparse stress sysfsutils \
         tldr-py trace-cmd tree tuna \
-        util-linux virt-what xz-utils
+        util-linux vim virt-what xz-utils
 
 echo "${name}: install 0setup_rpi.bash and ~/.vimrc ..."
 [ -f 0setup_rpi.bash ] && sudo cp 0setup_rpi.bash /
 # Append to ~/.bashrc to autorun every time a shell's spawned
-sed -i '$ a # Run our custom startup script\n/0setup_rpi.bash' ~/.bashrc
+sed -i '$ a # Run our custom startup script\n/source 0setup_rpi.bash' ~/.bashrc
 [ -f dot_vimrc ] && cp dot_vimrc ~/.vimrc
