@@ -31,6 +31,6 @@ echo "${name}: install 0setup_rpi.bash and ~/.vimrc ..."
 [ -f 0setup_rpi.bash ] && {
 	sudo cp 0setup_rpi.bash /
 	# Append to ~/.bashrc to autorun every time a shell's spawned
-	sed -i '$ a # Run our custom startup script\nsource /0setup_rpi.bash' ~/.bashrc
+	sed -i '$ a # Run our custom startup script\necho "source /0setup_rpi.bash"\nsource /0setup_rpi.bash' ~/.bashrc
 }
 [ -f dot_vimrc ] && cp dot_vimrc ~/.vimrc
