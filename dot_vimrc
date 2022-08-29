@@ -2,8 +2,8 @@
 " ref: http://dougblack.io/words/a-good-vimrc.html
 
 syntax enable
-set tabstop=4
-set softtabstop=4
+set tabstop=8
+set softtabstop=8
 "set expandtab       " tabs are spaces
 
 set number

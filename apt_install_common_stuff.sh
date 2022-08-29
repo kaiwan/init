@@ -1,26 +1,32 @@
 #!/bin/bash
 # repo:
 # https://github.com/kaiwan/init
+name=$(basename $0)
 
-# If on a Raspberry Pi, run
+# On a Raspberry Pi, run
 sudo raspi-config
-sudo apt install raspberrypi-kernel-headers
+     # setup Localization (date), WiFi, etc..
 
-# setup Localization (date), WiFi, etc..
-
-#--- from LLKD book
-
+echo "${name}: update..."
 sudo apt update
+
 # minimally
-sudo apt install gcc make perl git
+echo "${name}: install minimal packages..."
+sudo apt install -y gcc make perl git
 
-# everything
-sudo apt install fakeroot build-essential tar ncurses-dev tar xz-utils \
-		libssl-dev bc stress python3-distutils libelf-dev \
-		linux-headers-$(uname -r) bison flex libncurses5-dev util-linux \
-		net-tools linux-tools-$(uname -r) exuberant-ctags cscope sysfsutils \
-		gnome-system-monitor curl perf-tools-unstable gnuplot rt-tests indent \
-		tree pstree smem libnuma-dev numactl hwloc bpfcc-tools sparse \
-		flawfinder cppcheck tuna hexdump openjdk-14-jre trace-cmd virt-what file \
-		-y
+#--- from LKP book
+echo "${name}: install all required packages..."
+sudo apt install -y \
+        bc bpfcc-tools bsdextrautils \
+        cppcheck cscope curl exuberant-ctags \
+        fakeroot file flawfinder \
+        git gnome-system-monitor gnuplot hwloc indent \
+        libnuma-dev man-db net-tools \
+        perf-tools-unstable psmisc python3-distutils  \
+        raspberrypi-kernel-headers rt-tests smem sparse stress sysfsutils \
+        tldr-py trace-cmd tree tuna \
+        util-linux virt-what xz-utils
 
+echo "${name}: install 0setup_rpi.bash and ~/.vimrc ..."
+[ -f 0setup_rpi.bash ] && sudo cp 0setup_rpi.bash /
+[ -f dot_vimrc ] && cp dot_vimrc ~/.vimrc

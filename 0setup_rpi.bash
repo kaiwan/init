@@ -70,19 +70,16 @@ alias pscpu='ps aux|sort -k3n'
 #------------------------------------------------------------------------------
 
 alias hlt='echo "Halting ...";sync;sudo halt'
-# Ubuntu
 alias sd='sudo /bin/bash'
 
 [ $(id -u) -eq 0 ] && {
   # console debug: show all printk's on the console
   echo "8 4 1 4" > /proc/sys/kernel/printk
   # better core pattern
-  [ $(id -u) -eq 0 ] && {
-   # first set fs.suid_dumpable to 1 - debug mode
-   # ref: https://www.kernel.org/doc/html/latest/admin-guide/sysctl/fs.html#suid-dumpable
-   echo 1 > /proc/sys/fs/suid_dumpable
-   echo "corefile:host=%h:gPID=%P:gTID=%I:ruid=%u:sig=%s:exe=%E" > /proc/sys/kernel/core_pattern
-  }
+  # first set fs.suid_dumpable to 1 - debug mode
+  # ref: https://www.kernel.org/doc/html/latest/admin-guide/sysctl/fs.html#suid-dumpable
+  echo 1 > /proc/sys/fs/suid_dumpable
+  echo "corefile:host=%h:gPID=%P:gTID=%I:ruid=%u:sig=%s:exe=%E" > /proc/sys/kernel/core_pattern
 }
 #echo -n "printk: " ; cat /proc/sys/kernel/printk
 
