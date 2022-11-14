@@ -27,7 +27,11 @@ sudo apt install -y \
         tldr-py trace-cmd tree tuna \
         util-linux vim virt-what xz-utils
 
-echo "${name}: install 0setup_rpi.bash and ~/.vimrc ..."
+sync ; sleep 1
+echo "sudo apt upgrade"
+sudo apt upgrade
+
+echo "${name}: installing 0setup_rpi.bash and ~/.vimrc ..."
 [ -f 0setup_rpi.bash ] && {
 	sudo cp 0setup_rpi.bash /
 	# Append to ~/.bashrc to autorun every time a shell's spawned
