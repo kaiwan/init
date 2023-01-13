@@ -34,7 +34,8 @@ Linux kernel internals:
 https://github.com/kaiwan/L2_kernel_trg
 
 Linux kernel device drivers: 
-git clone https://github.com/kaiwan/L3_dd_trg
+https://github.com/kaiwan/L3_dd_trg
+https://github.com/kaiwan/labrat_drv
 
 Embedded Linux:
 git clone https://github.com/kaiwan/L4_emblinux_trg
