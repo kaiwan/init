@@ -46,6 +46,7 @@ sudo apt upgrade
 echo "${name}: installing 0setup_rpi.bash and ~/.vimrc ..."
 [ -f 0setup_rpi.bash ] && {
 	sudo cp 0setup_rpi.bash /
+	sudo chown ${USER}:${USER} /0setup_rpi.bash
 	# Append to ~/.bashrc to autorun every time a shell's spawned
 	sed -i '$ a # Run our custom startup script\necho "source /0setup_rpi.bash"\nsource /0setup_rpi.bash' ~/.bashrc
 }
