@@ -14,18 +14,30 @@ sudo apt update
 echo "${name}: install minimal packages..."
 sudo apt install -y gcc make perl git
 
-#--- from LKP book
-echo "${name}: install all required packages..."
-sudo apt install -y \
-        bc bpfcc-tools bsdextrautils \
-        cppcheck cscope curl exuberant-ctags \
-        fakeroot file flawfinder \
-        git gnome-system-monitor gnuplot hwloc indent \
-        libnuma-dev man-db net-tools \
-        perf-tools-unstable psmisc python3-distutils  \
-        raspberrypi-kernel-headers rt-tests smem sparse stress sysfsutils \
-        tldr-py trace-cmd tree tuna \
-        util-linux vim virt-what xz-utils
+#--- from LKP2E book
+# packages typically required for kernel build
+echo "${name}: install all required packages for kernel build..."
+runcmd sudo apt install -y \
+	asciidoc binutils-dev bison build-essential flex libncurses5-dev ncurses-dev \
+	libelf-dev libssl-dev pahole tar util-linux xz-utils zstd
+
+echo "-----------------------------------------------------------------------"
+
+# other packages...
+# TODO : check if reqd
+#sudo apt install -y bc bpfcc-tools build-essential \
+
+echo "${name}: install other packages..."
+runcmd sudo apt install -y \
+	bc bpfcc-tools bsdextrautils \
+	clang cppcheck cscope curl exuberant-ctags \
+	fakeroot flawfinder \
+	git gnome-system-monitor gnuplot hwloc indent \
+	libnuma-dev linux-headers-$(uname -r) linux-tools-$(uname -r) \
+	man-db net-tools numactl openjdk-18-jre  \
+	perf-tools-unstable psmisc python3-distutils  \
+	rt-tests smem sparse stress sysfsutils \
+	tldr-py trace-cmd tree tuna virt-what yad
 
 sync ; sleep 1
 echo "sudo apt upgrade"
