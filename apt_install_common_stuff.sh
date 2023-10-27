@@ -3,6 +3,23 @@
 # https://github.com/kaiwan/init
 name=$(basename $0)
 
+die()
+{
+echo >&2 "FATAL: $@"
+exit 1
+}
+
+# runcmd
+# Parameters
+#   $1 ... : params are the command to run
+runcmd()
+{
+	[ $# -eq 0 ] && return
+	echo "$@"
+	eval "$@"
+}
+
+
 # On a Raspberry Pi, run
 sudo raspi-config
      # setup Localization (date), WiFi, etc..
@@ -43,11 +60,11 @@ sync ; sleep 1
 echo "sudo apt upgrade"
 sudo apt upgrade
 
-echo "${name}: installing 0setup_rpi.bash and ~/.vimrc ..."
-[ -f 0setup_rpi.bash ] && {
-	sudo cp 0setup_rpi.bash /
-	sudo chown ${USER}:${USER} /0setup_rpi.bash
+echo "${name}: installing 0setup.bash and ~/.vimrc ..."
+[ -f 0setup.bash ] && {
+	sudo cp 0setup.bash /
+	sudo chown ${USER}:${USER} /0setup.bash
 	# Append to ~/.bashrc to autorun every time a shell's spawned
-	sed -i '$ a # Run our custom startup script\necho "source /0setup_rpi.bash"\nsource /0setup_rpi.bash' ~/.bashrc
+	sed -i '$ a # Run our custom startup script\necho "source /0setup.bash"\nsource /0setup.bash' ~/.bashrc
 }
 [ -f dot_vimrc ] && cp dot_vimrc ~/.vimrc
