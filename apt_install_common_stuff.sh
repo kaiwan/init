@@ -53,8 +53,8 @@ runcmd sudo apt install -y \
 	libnuma-dev linux-headers-$(uname -r) linux-tools-$(uname -r) \
 	man-db net-tools numactl openjdk-18-jre  \
 	perf-tools-unstable psmisc python3-distutils  \
-	rt-tests smem sparse stress sysfsutils \
-	tldr-py trace-cmd tree tuna virt-what yad
+	raspberrypi-kernel-headers rt-tests smem sparse stress sysfsutils \
+	tldr-py trace-cmd tree tuna vim virt-what yad
 
 sync ; sleep 1
 echo "sudo apt upgrade"
