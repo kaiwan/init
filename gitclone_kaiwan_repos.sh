@@ -10,12 +10,12 @@ https://github.com/kaiwan/L1_sysprg_trg \
 https://github.com/kaiwan/L2_kernel_trg \
 https://github.com/kaiwan/L3_dd_trg \
 https://github.com/kaiwan/labrat_drv \
+https://github.com/kaiwan/drv_johannes \
 https://github.com/kaiwan/L4_emblinux_trg \
 https://github.com/kaiwan/L5_debug_trg \
 https://github.com/kaiwan/procmap \
 https://github.com/kaiwan/hacksec \
 https://github.com/kaiwan/trccmd \
-https://github.com/PacktPublishing/Linux-Kernel-Programming \
 https://github.com/PacktPublishing/Linux-Kernel-Programming_2E \
 https://github.com/PacktPublishing/Linux-Kernel-Programming-Part-2 \
 https://github.com/PacktPublishing/Linux-Kernel-Debugging \
