@@ -13,13 +13,22 @@ BASH_ENV=$HOME/.bashrc
 export BASH_ENV PATH
 unset USERNAME
 
+red_highlight()
+{
+	[[ $# -eq 0 ]] && return
+	echo -e "\e[1m\e[41m$1\e[0m"
+}
+
+
 SDCARD=0
 [[ -f ~/THIS_IS_SDCARD_MMC0 ]] && SDCARD=1
-[[ ${SDCARD} -eq 1 ]] && echo "Booted off the uSD card" || echo "Booted off the *** eMMC internal flash *** "
+[[ ${SDCARD} -eq 1 ]] && \
+	red_highlight "Booted off the uSD card" || \
+	red_highlight "Booted off the *** eMMC Internal Flash ***"
 
 #--- Prompt
 # ref: https://unix.stackexchange.com/questions/20803/customizing-bash-shell-bold-color-the-command
-[ `id -u` -eq 0 ] && {
+[ $(id -u) -eq 0 ] && {
    export PS1='bbb \W # '
    #export PS1='\[\e[1;34m\] $(hostname) # \[\e[0;32m\]'
 } || {
