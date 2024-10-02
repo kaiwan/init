@@ -60,11 +60,20 @@ sync ; sleep 1
 echo "sudo apt upgrade"
 sudo apt upgrade
 
-echo "${name}: installing 0setup.bash and ~/.vimrc ..."
-[ -f 0setup.bash ] && {
-	sudo cp 0setup.bash /
-	sudo chown ${USER}:${USER} /0setup.bash
+ZERO_SETUP=0setup_rpi.bash
+echo "Setup for a Raspberry Pi board now? [y/n] "
+read reply
+[[ "${reply}" = "n" ]] && {
+	echo "Setup for a TI BeagleBone Black (BBB) board now? [y/n] "
+  	read reply
+ 	[[ "${reply}" = "y" ]] && ZERO_SETUP=0setup_bbb.bash
+}
+
+echo "${name}: installing ${ZERO_SETUP} and ~/.vimrc ..."
+[[ -f ${ZERO_SETUP} ]] && {
+	sudo cp ${ZERO_SETUP} /
+	sudo chown ${USER}:${USER} ${ZERO_SETUP}
 	# Append to ~/.bashrc to autorun every time a shell's spawned
-	sed -i '$ a # Run our custom startup script\necho "source /0setup.bash"\nsource /0setup.bash' ~/.bashrc
+	sed -i '$ a # Run our custom startup script\necho "source /0setup.bash"\nsource /${ZERO_SETUP}' ~/.bashrc
 }
 [ -f dot_vimrc ] && cp dot_vimrc ~/.vimrc
