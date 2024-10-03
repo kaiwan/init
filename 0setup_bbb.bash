@@ -21,7 +21,7 @@ red_highlight()
 
 
 SDCARD=0
-[[ -f ~/THIS_IS_SDCARD_MMC0 ]] && SDCARD=1
+[[ -f /home/debian/THIS_IS_SDCARD_MMC0 ]] && SDCARD=1
 [[ ${SDCARD} -eq 1 ]] && \
 	red_highlight "Booted off the uSD card" || \
 	red_highlight "Booted off the *** eMMC Internal Flash ***"
