@@ -26,6 +26,9 @@ SDCARD=0
 	red_highlight "Booted off the uSD card" || \
 	red_highlight "Booted off the *** eMMC Internal Flash ***"
 
+echo "--- DT overlays present:"
+ls /proc/device-tree/chosen/overlays/
+
 #--- Prompt
 # ref: https://unix.stackexchange.com/questions/20803/customizing-bash-shell-bold-color-the-command
 [ $(id -u) -eq 0 ] && {
@@ -108,6 +111,8 @@ alias gitlog='git log --graph --pretty=format:"%h: %ar: %s" --abbrev-commit'
 git config --global credential.helper 'cache --timeout 36000'  # in sec; thus, 10 hrs
 #----------------------------------------------------------------------
 
+echo "Turning OFF user LEDs (they're annoying!)"
+/home/debian/turn_off_all_userleds
 
 ###
 # Some useful functions
