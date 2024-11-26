@@ -60,13 +60,13 @@ sync ; sleep 1
 echo "sudo apt upgrade"
 sudo apt upgrade
 
-ZERO_SETUP=0setup_rpi.bash
+ZERO_SETUP=rpi/0setup_rpi.bash
 echo "Setup for a Raspberry Pi board now? [y/n] "
 read reply
 [[ "${reply}" = "n" ]] && {
 	echo "Setup for a TI BeagleBone Black (BBB) board now? [y/n] "
   	read reply
- 	[[ "${reply}" = "y" ]] && ZERO_SETUP=0setup_bbb.bash
+ 	[[ "${reply}" = "y" ]] && ZERO_SETUP=bbb/0setup_bbb.bash
 }
 
 echo "${name}: installing ${ZERO_SETUP} and ~/.vimrc ..."
