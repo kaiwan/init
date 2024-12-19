@@ -74,6 +74,6 @@ echo "${name}: installing ${ZERO_SETUP} and ~/.vimrc ..."
 	sudo cp ${ZERO_SETUP} /
 	sudo chown ${USER}:${USER} ${ZERO_SETUP}
 	# Append to ~/.bashrc to autorun every time a shell's spawned
-	sed -i '$ a # Run our custom startup script\necho "source /0setup.bash"\nsource /${ZERO_SETUP}' ~/.bashrc
+	sed -i '$ a # Run our custom startup script\necho "source /0setup*"\nsource /0setup*' ~/.bashrc
 }
 [ -f dot_vimrc ] && cp dot_vimrc ~/.vimrc
