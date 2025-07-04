@@ -110,7 +110,9 @@ alias gitlog='git log --graph --pretty=format:"%h: %ar: %s" --abbrev-commit'
  #git log --graph --pretty=oneline --abbrev-commit'
 #----------------------------------------------------------------------
 # auth
-git config --global credential.helper 'cache --timeout 36000'  # in sec; thus, 10 hrs
+git config --global pull.rebase false  # merge (the default strategy)
+git config --global credential.helper 'cache --timeout 86400'  # in sec; thus, 24 hrs
+git config --global help.autocorrect 20
 #----------------------------------------------------------------------
 
 [[ -f /home/debian/turn_off_all_userleds ]] && {
