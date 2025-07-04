@@ -116,6 +116,9 @@ git config --global credential.helper 'cache --timeout 36000'  # in sec; thus, 1
 [[ -f /home/debian/turn_off_all_userleds ]] && {
   echo "Turning OFF user LEDs (they're annoying!)"
   /home/debian/turn_off_all_userleds
+} || {
+  echo "Turning off the 'heartbeat' LED"
+  echo none > /sys/devices/platform/leds/leds/beaglebone\:green\:usr0/trigger
 }
 
 ###
