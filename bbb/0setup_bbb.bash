@@ -20,11 +20,11 @@ red_highlight()
 }
 
 
-SDCARD=0
-[[ -f /home/debian/THIS_IS_SDCARD_MMC0 ]] && SDCARD=1
+SDCARD=1
+[[ -f /THIS_IS_EMMC_MMCBKL1P1 ]] && SDCARD=0
 [[ ${SDCARD} -eq 1 ]] && \
-	red_highlight "Booted off the uSD card" || \
-	red_highlight "Booted off the *** eMMC Internal Flash ***"
+	red_highlight "Booted off the uSD card /dev/mmcblk0p3" || \
+	red_highlight "Booted off the *** eMMC Internal Flash /dev/mmcblk1p1 ***"
 
 echo "--- DT overlays present:"
 ls /proc/device-tree/chosen/overlays/
