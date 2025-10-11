@@ -35,7 +35,11 @@ clone_git_repos()
  for repo in "${REPOS[@]}"
  do
    echo "$i: git clone ${repo}"
-   git clone ${repo}
+   git clone ${repo} || {
+     echo 'exists; git pull'
+     (cd ${HOME}/kaiwanTECH/$(basename ${repo}) ; git pull || {
+       echo "*** ABORTED ***" ; true)
+     }
    sleep 0.5
    let i=i+1
    echo
