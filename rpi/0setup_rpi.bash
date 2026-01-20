@@ -76,7 +76,7 @@ alias rcpu='ps -o %cpu,%mem,user,pid,rss,stat,time,command -Aww |sort -k1n'
 alias pscpu='ps aux|sort -k3n'
 #------------------------------------------------------------------------------
 
-alias hlt='echo "Halting ...";sync;sudo halt'
+alias hlt='echo "Halting poweroff ...";sync;sudo poweroff'
 alias sd='sudo /bin/bash'
 
 [ $(id -u) -eq 0 ] && {
