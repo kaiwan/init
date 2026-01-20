@@ -23,10 +23,13 @@ https://github.com/PacktPublishing/Linux-Kernel-Debugging \
 https://github.com/kaiwan/Hands-on-System-Programming-with-Linux \
 )
 
+REPO_LOC=${HOME}/kaiwanTECH
+#REPO_LOC=/flash_rootfs/home/debian/kaiwanTECH
+
 clone_git_repos()
 {
- mkdir -p ${HOME}/kaiwanTECH 2>/dev/null
- cd ~/kaiwanTECH || exit 1
+ mkdir -p ${REPO_LOC}/ 2>/dev/null
+ cd ${REPO_LOC}/ || exit 1
 
  (
  i=1
@@ -35,7 +38,12 @@ clone_git_repos()
  for repo in "${REPOS[@]}"
  do
    echo "$i: git clone ${repo}"
-   git clone ${repo}
+   git clone ${repo} || {
+     echo "exists; git pull (in $(pwd))"
+     (cd ${REPO_LOC}/$(basename ${repo}) ; git pull || { \
+       echo "*** ABORTED ***" ; true
+      } )
+   }
    sleep 0.5
    let i=i+1
    echo

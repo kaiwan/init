@@ -20,14 +20,16 @@ red_highlight()
 }
 
 
-SDCARD=0
-[[ -f /home/debian/THIS_IS_SDCARD_MMC0 ]] && SDCARD=1
+SDCARD=1
+[[ -f /THIS_IS_EMMC_MMCBKL1P1 ]] && SDCARD=0
 [[ ${SDCARD} -eq 1 ]] && \
-	red_highlight "Booted off the uSD card" || \
-	red_highlight "Booted off the *** eMMC Internal Flash ***"
+	red_highlight "Booted off the uSD card /dev/mmcblk0p3" || \
+	red_highlight "Booted off the *** eMMC Internal Flash /dev/mmcblk1p1 ***"
 
-echo "--- DT overlays present:"
-ls /proc/device-tree/chosen/overlays/
+[[ -d /proc/device-tree/chosen/overlays/ ]] && {
+  echo "--- DT overlays present:"
+  ls /proc/device-tree/chosen/overlays/
+}
 
 #--- Prompt
 # ref: https://unix.stackexchange.com/questions/20803/customizing-bash-shell-bold-color-the-command
@@ -108,11 +110,18 @@ alias gitlog='git log --graph --pretty=format:"%h: %ar: %s" --abbrev-commit'
  #git log --graph --pretty=oneline --abbrev-commit'
 #----------------------------------------------------------------------
 # auth
-git config --global credential.helper 'cache --timeout 36000'  # in sec; thus, 10 hrs
+git config --global pull.rebase false  # merge (the default strategy)
+git config --global credential.helper 'cache --timeout 86400'  # in sec; thus, 24 hrs
+git config --global help.autocorrect 20
 #----------------------------------------------------------------------
 
-echo "Turning OFF user LEDs (they're annoying!)"
-/home/debian/turn_off_all_userleds
+[[ -f /home/debian/turn_off_all_userleds ]] && {
+  echo "Turning OFF user LEDs (they're annoying!)"
+  /home/debian/turn_off_all_userleds
+} || {
+  echo "Turning off the 'heartbeat' LED"
+  echo none > /sys/devices/platform/leds/leds/beaglebone\:green\:usr0/trigger
+}
 
 ###
 # Some useful functions
