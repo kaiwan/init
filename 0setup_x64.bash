@@ -6,6 +6,8 @@
 # source /0setup.bash
 # (c) kaiwanTECH
 
+TZ='Asia/Kolkata'; export TZ
+
 red_highlight()
 {
         [[ $# -eq 0 ]] && return

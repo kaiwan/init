@@ -12,6 +12,7 @@ BASH_ENV=$HOME/.bashrc
 
 export BASH_ENV PATH
 unset USERNAME
+TZ='Asia/Kolkata'; export TZ
 
 red_highlight()
 {
