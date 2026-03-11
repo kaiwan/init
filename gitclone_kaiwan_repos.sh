@@ -11,6 +11,7 @@ https://github.com/kaiwan/L2_kernel_trg \
 https://github.com/kaiwan/L3_dd_trg \
 https://github.com/kaiwan/labrat_drv \
 https://github.com/kaiwan/drv_johannes \
+https://github.com/kaiwan/sblkdev_blkmq \
 https://github.com/kaiwan/L4_emblinux_trg \
 https://github.com/kaiwan/L5_user_debug \
 https://github.com/kaiwan/L5_kernel_debug \
