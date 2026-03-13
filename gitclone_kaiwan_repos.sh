@@ -22,6 +22,8 @@ https://github.com/PacktPublishing/Linux-Kernel-Programming_2E \
 https://github.com/PacktPublishing/Linux-Kernel-Programming-Part-2 \
 https://github.com/PacktPublishing/Linux-Kernel-Debugging \
 https://github.com/kaiwan/Hands-on-System-Programming-with-Linux \
+https://github.com/kaiwan/flamegraph \
+
 )
 
 REPO_LOC=${HOME}/kaiwanTECH
